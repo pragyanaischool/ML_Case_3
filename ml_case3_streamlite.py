@@ -24,13 +24,13 @@ model = joblib.load('clf.joblib')
 @st.cache
 
 # Define the prediction function
-def predict(age, sex, cp, diabetes, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal):
+def predict(age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal):
     if sex == 'Male':
         sex = 1
     elif sex == 'Female':
         sex = 0
 
-    df = pd.DataFrame([[age, sex, cp, diabetes, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal]], columns=['age', 'sex', 'cp', 'diabetes', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak','slope','ca', 'thal'])
+    df = pd.DataFrame([[age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal]], columns=['age', 'sex', 'cp', 'diabetes', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak','slope','ca', 'thal'])
     
     data = pd.read_csv("heart_cleveland.csv") #path folder of the data file
     X = data.drop(['condition'], axis=1, inplace=True)
@@ -58,5 +58,5 @@ ca =st.number_input('ca:', min_value=0, max_value=3, value=1)
 thal =st.number_input('thal:', min_value=0, max_value=3, value=1)
 
 if st.button('Submit_Health_Values'):
-    disease = predict(age, sex, cp, diabetes, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal)
+    disease = predict(age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal)
     st.success(f'The Diagnose of heart Disease (1 Heart Disease Exist, 0 Heart Is healthy) : {disease[0]:.2f}')
