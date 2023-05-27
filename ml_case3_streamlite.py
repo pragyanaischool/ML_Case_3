@@ -31,7 +31,7 @@ def predict(age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,s
         sex = 0 
     
     data = pd.read_csv("heart_cleveland.csv") #path folder of the data file
-    data = data.drop(['condition'])
+    data = data.drop(['condition'], axis =1)
     scaler.fit_transform(data)
     df = pd.DataFrame([[age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal]], columns=['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak','slope','ca', 'thal'])
     x_test = scaler.transform(df)
