@@ -58,4 +58,4 @@ thal =st.number_input('thal:', min_value=0, max_value=3, value=1)
 
 if st.button('Submit_Health_Values'):
     disease = predict(age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal)
-    st.success(f'The Diagnose of heart Disease (1 Heart Disease Exist, 0 Heart Is healthy) : {disease:.2f}')
+    st.success(f'The Diagnose of heart Disease (1 Heart Disease Exist, 0 Heart Is healthy) : {disease[0]:.2f}')
