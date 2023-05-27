@@ -33,7 +33,7 @@ def predict(age, sex, cp, diabetes, trestbps, chol, fbs, restecg, thalach,exang,
     df = pd.DataFrame([[age, sex, cp, diabetes, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal]], columns=['age', 'sex', 'cp', 'diabetes', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak','slope','ca', 'thal'])
     
     data = pd.read_csv("heart_cleveland.csv") #path folder of the data file
-    X = data.drop(['condition'], inplace=True)
+    X = data.drop(['condition'], axis=1, inplace=True)
     scaler.fit_transform(X)
     x_test = scaler.transform(df)
     prediction = model.predict(x_test)
