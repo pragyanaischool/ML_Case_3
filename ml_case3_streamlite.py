@@ -30,7 +30,7 @@ def predict(age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,s
     elif sex == 'Female':
         sex = 0
 
-    df = pd.DataFrame([[age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal]], columns=['age', 'sex', 'cp', 'diabetes', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak','slope','ca', 'thal'])
+    df = pd.DataFrame([[age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak,slope,ca, thal]], columns=['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak','slope','ca', 'thal'])
     
     data = pd.read_csv("heart_cleveland.csv") #path folder of the data file
     X = data.drop(['condition'], axis=1, inplace=True)
