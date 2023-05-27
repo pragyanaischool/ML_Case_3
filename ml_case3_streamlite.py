@@ -19,7 +19,7 @@ scaler = StandardScaler()
 #Loading up the Regression model we created
 clf = RandomForestClassifier()
 
-model = joblib.load('clf.joblib')
+model = joblib.load('clf_new.joblib')
 #Caching the model for faster loading
 @st.cache
 
